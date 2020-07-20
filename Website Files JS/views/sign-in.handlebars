@@ -1,0 +1,49 @@
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<style>
+.login-form {
+    width: 440px;
+    margin: 100px auto;
+  	font-size: 15px;
+    font-family: "times roman"
+}
+.login-form  {
+    margin-bottom: 15px;
+    padding: 10px;  
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 12px;
+    
+}
+.btn {        
+    font-size: 20px;
+    background: blue;
+}
+</style>
+</head>
+<body>
+<div class="login-form">
+    <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post">
+        <h3 class="text-center">Sign In</h3>       
+        <div class="user">
+        <br>
+            <input type="text" placeholder="Username" id="username" class="form-control">
+            <br>
+        </div>
+        <div class="password">
+            <input type="password" placeholder="Password" id="password" class="form-control">
+        <a href="forgot password" class="float-right">Forgot Password?</a>
+        <br>
+        </div>  
+    <br>
+        <div class="login">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <br>
+    </form>
+    <p class="text-right">New User? <a href="signup">Sign up here!</a></p>
+</div>
+</body>
