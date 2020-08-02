@@ -1,0 +1,55 @@
+<header>
+	<nav class="navBar">
+			<a href="/">Home</a>
+			<a href="/account">Account</a>
+			<a href="/my-workouts">My Workouts</a>
+			<a href="/user-forum">User Forum</a>
+			<a href="#">Logout</a>
+</header>
+
+<section>
+<div class = "table">
+<form id="update-student" action="/students" method="patch">
+<div class = "header">
+	<p>Update {{user.userName}}:</p>	
+	</div>
+			<table>
+			<tr>
+				<td>UserName: </td>
+				<td>{{user.userName}}></td>
+			</tr>
+			<tr>
+				<td>Email: </td>
+				<td><input type="text" name="email" value="{{user.email}}"></td>
+			</tr>
+			<tr>
+				<td>Gender: </td>
+				<td><select name="gender" id="gender-selector"> 
+					<option value=male>Male</option>
+        			<option value=female>Female</option>
+					<option value=other>Other</option>
+        			<option value=other2>Prefer Not to Say</option>
+    				</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Age </td>
+				<td><input type="number" min="0" max="140" id="age" name="age" value="{{user.age}}"></td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input type="text" name="password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password: </td>
+				<td><input type="text" name="password"></td>
+			</tr>
+	    	<tr>
+                <td><button onclick="updateUser({{user.userID}})">Update</button></td>
+            </tr>
+
+			</table>
+		</form>
+	</div>
+
+<script defer>selectGender({{user.gender}});</script>

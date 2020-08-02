@@ -1,0 +1,72 @@
+<header>
+	<nav class="navBar">
+			<a href="/">Home</a>
+			<a href="/account">Account</a>
+			<a href="/my-workouts">My Workouts</a>
+			<a href="/user-forum">User Forum</a>
+			<a href="#">Logout</a>
+</header>
+
+<section>
+    <br>
+	<div class = "header">
+        <h3>Daily Workouts</h3>
+	</div>
+  	
+	<table>
+		
+		<thead>
+		<table id = "t2">
+			<tr>
+				<th>Workout</th>
+				<th>Link to Media File</th>
+				<th>Sets</th>
+				<th>Reps</th>
+				<th>Completed?</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{{#each completedWorkouts}}
+			<tr>
+				<td>{{workoutName}}</td>
+				<td>{{linkToVideo}}</td>
+				<td>{{sets}}</td>
+				<td>{{reps}}</td>
+				<td><button onclick="completeWorkout({{registration_id}})">Mark Complete</button></td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+    <br>
+	<div class = "header">
+        <h3>Completed Workouts</h3>
+	</div>
+
+	<table>
+		
+		<thead>
+		<table id = "t2">
+			<tr>
+				<th>Workout</th>
+				<th>Body Part</th>
+				<th>Sets</th>
+				<th>Reps</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{{#each dailyWorkouts}}
+			<tr>
+				<td>{{workoutName}}</td>
+				<td>{{bodyPart}}</td>
+				<td>{{sets}}</td>
+				<td>{{reps}}</td>
+				<td>{{date}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</section>
