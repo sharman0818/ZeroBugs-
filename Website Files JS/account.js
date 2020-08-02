@@ -3,9 +3,9 @@ module.exports = function(){
     var router = express.Router();
 
 
-    function getUser(res, mysql, context, student_id, complete){
+    function getUser(res, mysql, context, userID, complete){
         var sql = "SELECT userID, userName, email, gender, age FROM Users WHERE userID=?";
-        var inserts = [student_id];
+        var inserts = [userID];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
@@ -22,7 +22,7 @@ module.exports = function(){
     	var callbackCount = 0;
         var context = {};
         var mysql = req.app.get('mysql');
-        getUser(res, mysql, context, complete);
+        getUser(res, mysql, context, req.params.userID, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
@@ -39,7 +39,7 @@ module.exports = function(){
         var context = {};
         context.jsscripts = ["selectedgender.js", "updateuser.js"];
         var mysql = req.app.get('mysql');
-        getUser(res, mysql, context, req.params.student_id, complete);
+        getUser(res, mysql, context, req.params.userID, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
