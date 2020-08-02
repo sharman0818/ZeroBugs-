@@ -27,9 +27,10 @@
 		</thead>
 
 		<tbody>
-			{{#each completedWorkouts}}
+			{{#each dailyWorkouts}}
 			<tr>
 				<td>{{workoutName}}</td>
+				<td>{{bodyPart}}</td>
 				<td>{{linkToVideo}}</td>
 				<td>{{sets}}</td>
 				<td>{{reps}}</td>
@@ -58,7 +59,7 @@
 		</thead>
 
 		<tbody>
-			{{#each dailyWorkouts}}
+			{{#each completedWorkouts}}
 			<tr>
 				<td>{{workoutName}}</td>
 				<td>{{bodyPart}}</td>
