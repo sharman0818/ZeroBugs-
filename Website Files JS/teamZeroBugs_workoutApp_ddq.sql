@@ -78,7 +78,6 @@ INSERT INTO `Workouts` (`workoutID`, `workoutName`, `bodyPart`, `linkToVideo`, `
 CREATE TABLE `DailyWorkouts` (
   `listID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2,
   `userID` int(11) NOT NULL,
-  `workoutID` int(11) NOT NULL,
   `workoutName` varchar(20) NOT NULL,
   `bodyPart` varchar(20) NOT NULL,
   `linkToVideo` varchar(20) NOT NULL,
@@ -91,11 +90,11 @@ CREATE TABLE `DailyWorkouts` (
 -- Dumping data for table `DailyWorkouts`
 --
 
-INSERT INTO `DailyWorkouts` (`listID`, `userID`, `worrkoutID`, `workoutName`, `bodyPart`, `linkToVideo`, `date`, `sets`, `reps`) VALUES
-(1, 1, 2, 'Bench Press', 'Chest', '#', '2020-08-02', 4, 10),
-(2, 1, 3, 'Sit Ups', 'Core', '#', '2020-08-02', 4, 14),
-(3, 2, 1, 'Squats', 'Legs', '#', '2020-08-02', 3, 7),
-(4, 2, 2, 'Bench Press', 'Chest', '#', '2020-08-02', 3, 8);
+INSERT INTO `DailyWorkouts` (`listID`, `userID`, `workoutName`, `bodyPart`, `linkToVideo`, `date`, `sets`, `reps`) VALUES
+(1, 1, 'Bench Press', 'Chest', '#', '2020-08-02', 4, 10),
+(2, 1, 'Sit Ups', 'Core', '#', '2020-08-02', 4, 14),
+(3, 2, 'Squats', 'Legs', '#', '2020-08-02', 3, 7),
+(4, 2, 'Bench Press', 'Chest', '#', '2020-08-02', 3, 8);
 
 -- --------------------------------------------------------
 
