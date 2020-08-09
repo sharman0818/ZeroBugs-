@@ -169,8 +169,7 @@ ALTER TABLE `CompletedWorkouts`
 -- Constraints for table `DailyWorkouts`
 --
 ALTER TABLE `DailyWorkouts`
-  ADD CONSTRAINT `RequestedItems_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`),
-  ADD CONSTRAINT `RequestedItems_ibfk_2` FOREIGN KEY (`workoutID`) REFERENCES `Workouts` (`workoutID`);
+  ADD CONSTRAINT `RequestedItems_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
