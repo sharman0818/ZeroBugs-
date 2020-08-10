@@ -15,6 +15,7 @@ module.exports = function(){
             complete();
         });
     }
+    
 
     function getCompletedWorkouts(res, mysql, context, userID, complete){
         var sql = "SELECT workoutName, bodyPart, sets, reps FROM DailyWorkouts WHERE userID=?";
