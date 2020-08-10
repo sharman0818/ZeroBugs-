@@ -47,7 +47,7 @@ module.exports = function(){
         }
     });
 
- 
+  /*router put with userID*/
 
     router.put('/userID', function(req, res){
         var mysql = req.app.get('mysql');
