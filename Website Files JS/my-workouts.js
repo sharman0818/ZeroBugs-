@@ -30,7 +30,7 @@ module.exports = function(){
         });
     }
 
-    /*Display daily workouts and completed workouts for selected user. Requires web based javascript to delete users with AJAX*/
+    /*Requires web based javascript to delete users with AJAX*/
 
     router.get('/', function(req, res){
     	var callbackCount = 0;
