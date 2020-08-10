@@ -32,8 +32,6 @@ module.exports = function(){
     });
 
 
-    /* Display one user for the specific purpose of updating that user */
-
     router.get('/:userID', function(req, res){
         callbackCount = 0;
         var context = {};
@@ -49,8 +47,7 @@ module.exports = function(){
         }
     });
 
-    
-    /* The URI that update data is sent to in order to update a student */
+ 
 
     router.put('/userID', function(req, res){
         var mysql = req.app.get('mysql');
