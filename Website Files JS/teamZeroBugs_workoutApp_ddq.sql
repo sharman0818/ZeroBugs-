@@ -65,9 +65,24 @@ CREATE TABLE `Workouts` (
 --
 
 INSERT INTO `Workouts` (`workoutID`, `workoutName`, `bodyPart`, `linkToVideo`, `baseReps`) VALUES
-(1, 'Squats', 'Legs', '#', 0),
-(2, 'Bench Press', 'Chest', '#', 1),
-(3, 'Sit Ups', 'Core', '#', 5);
+(1, 'Bench Press', 'Chest', 'https://www.youtube.com/watch?v=vthMCtgVtFw', 3),
+(2, 'Incline Bench Press', 'Chest', 'https://www.youtube.com/watch?v=SrqOu55lrYU', 1),
+(3, 'Decline Bench Press', 'Chest', 'https://www.youtube.com/watch?v=LfyQBUKR8SE', 1)
+(4, 'Planks', 'Core', 'https://www.youtube.com/watch?v=pSHjTRCQxIw', 2)
+(5, 'Crunches', 'Core', 'https://www.youtube.com/watch?v=MKmrqcoCZ-M', 2)
+(6, 'Leg Raises', 'Core', 'https://www.youtube.com/watch?v=l4kQd9eWclE', 2)
+(7, 'Dumbbell Curl', 'Arm', 'https://www.youtube.com/watch?v=ykJmrZ5v0Oo', 5)
+(8, 'Dips', 'Arm', 'https://www.youtube.com/watch?v=jdFzYGmvDyg', 3)
+(9, 'Pull-Ups', 'Arm', 'https://www.youtube.com/watch?v=IpxAG2z91Ys', 3)
+(10, 'Squats', 'Legs', 'https://www.youtube.com/watch?v=aclHkVaku9U', 1)
+(11, 'Deadlift', 'Legs', 'https://www.youtube.com/watch?v=hCDzSR6bW10', 1)
+(12, 'Calf Raises', 'Legs', 'https://www.youtube.com/watch?v=-M4-G8p8fmc', 4)
+(13, 'Dumbbell Shoulder Press', 'Shoulder', 'https://www.youtube.com/watch?v=qEwKCR5JCog', 3)
+(14, 'Dumbbell Lateral Press', 'Shoulder', 'https://www.youtube.com/watch?v=3VcKaXpzqRo', 3)
+(15, 'Barbell Shrugs', 'Shoulder', 'https://www.youtube.com/watch?v=NAqCVe2mwzM', 2)
+(16, 'Cable Row', 'Chest', 'https://www.youtube.com/watch?v=GZbfZ033f74', 5)
+(17, 'Lat Pull-down', 'Chest', 'https://www.youtube.com/watch?v=CAwf7n6Luuc', 5)
+(18, 'Kettlebell Swings', 'Chest', 'https://www.youtube.com/watch?v=YSxHifyI6s8', 3);
 
 -- --------------------------------------------------------
 
