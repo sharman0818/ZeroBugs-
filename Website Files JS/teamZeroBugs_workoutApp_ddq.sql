@@ -135,6 +135,71 @@ INSERT INTO `Users` (`userID`, `userName`, `userPW`, `userEmail`, `userGender`, 
 (1, 'test1', 'BoyPerson', 'password1', 'bp@gmail.com', 'male', 50, 9),
 (2, 'test2', 'GirlPerson', 'password2', 'gp@yahoo.com', 'female', 70, 7);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Posts`
+--
+
+CREATE TABLE `Posts` (
+  `postID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5,
+  `userID` int(11) NOT NULL,
+  `postText` varchar(2000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Posts`
+--
+
+INSERT INTO `Posts` (`postID`, `userID`, `postText`) VALUES
+(5, 1, 'I am so awesome because I workout'),
+(10, 1, 'This is a comment by a user. Just saying.'),
+(15, 2, 'I like to squat and bench press'),
+(20, 2, 'To be or not to be that is the question.  Foo bar');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Likes`
+--
+
+CREATE TABLE `Likes` (
+  `postID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Likes`
+--
+
+INSERT INTO `Likes` (`postID`, `userID`, `postText`) VALUES
+(5, 2),
+(10, 2),
+(15, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Comments`
+--
+
+CREATE TABLE `Comments` (
+  `postID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5,
+  `userID` int(11) NOT NULL,
+  `commentText` varchar(2000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Posts`
+--
+
+INSERT INTO `Posts` (`postID`, `userID`, `postText`) VALUES
+(5, 2, 'I am the second test user and I am commenting on this'),
+(5, 1, 'Thank you for your input.'),
+(20, 1, 'You like to work out.'),
+(20, 2, 'Yes I do.');
+
+-- --------------------------------------------------------
 --
 -- Indexes for dumped tables
 --
@@ -169,6 +234,27 @@ ALTER TABLE `Users`
   ADD UNIQUE KEY `userEmail` (`userEmail`);
 
 --
+-- Indexes for table `Posts`
+--
+ALTER TABLE `Posts`
+  ADD PRIMARY KEY (`postID`),
+  ADD KEY `userID` (`userID`);
+
+--
+-- Indexes for table `Likes`
+--
+ALTER TABLE `Likes`
+  ADD KEY `postID` (`postID`),
+  ADD KEY `userID` (`userID`);
+
+--
+-- Indexes for table `Comments`
+--
+ALTER TABLE `Comments`
+  ADD KEY `postID` (`postID`),
+  ADD KEY `userID` (`userID`);
+
+--
 
 -- Constraints for dumped tables
 --
@@ -177,13 +263,33 @@ ALTER TABLE `Users`
 -- Constraints for table `CompletedWorkouts`
 --
 ALTER TABLE `CompletedWorkouts`
-  ADD CONSTRAINT `Fulfillments_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+  ADD CONSTRAINT `CompletedWorkouts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
 
 --
 -- Constraints for table `DailyWorkouts`
 --
 ALTER TABLE `DailyWorkouts`
-  ADD CONSTRAINT `RequestedItems_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+  ADD CONSTRAINT `DailyWorkouts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+
+--
+-- Constraints for table `Posts`
+--
+ALTER TABLE `Posts`
+  ADD CONSTRAINT `Posts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+
+--
+-- Constraints for table `Likes`
+--
+ALTER TABLE `Likes`
+  ADD CONSTRAINT `Likes_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+  ADD CONSTRAINT `Likes_ibfk_1` FOREIGN KEY (`postID`) REFERENCES `Posts` (`postID`);
+
+--
+-- Constraints for table `Comments`
+--
+ALTER TABLE `Comments`
+  ADD CONSTRAINT `Comments_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+  ADD CONSTRAINT `Comments_ibfk_1` FOREIGN KEY (`postID`) REFERENCES `Posts` (`postID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
