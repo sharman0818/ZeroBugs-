@@ -25,13 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CompletedWorkouts`
+-- Table structure for table `UserWorkouts`
 --
 
-CREATE TABLE `CompletedWorkouts` (
-  `completionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3,
+CREATE TABLE `UserWorkouts` (
+  `userWorkoutID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3,
   `workoutName` varchar(20) NOT NULL,
   `bodyPart` varchar(20) NOT NULL,
+  `completed` varchar(20) NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `workoutDate` date NOT NULL,
   `sets` int(11) NOT NULL,
@@ -39,12 +40,16 @@ CREATE TABLE `CompletedWorkouts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `CompletedWorkouts`
+-- Dumping data for table `UserWorkouts`
 --
 
-INSERT INTO `CompletedWorkouts` (`completionID`, `workoutName`, `bodyPart`, `userID`, `workoutDate`, `sets`, `reps`) VALUES
-(1, `Squats`, `Legs`, 1, '2020-08-01', 3, 10),
-(2, `Bench Press`, `Chest`, 2, '2020-07-31', 4, 6);
+INSERT INTO `UserWorkouts` (`userWorkoutID`, `workoutName`, `bodyPart`, `completed`, `userID`, `workoutDate`, `sets`, `reps`) VALUES
+(1, `Squats`, `Legs`, `Y`, 1, '2020-08-01', 3, 10),
+(2, `Bench Press`, `Chest`, `N`, 2, '2020-07-31', 4, 6)
+(1, 'Bench Press', 'Chest', 'N', 1, '2020-08-02', 4, 10),
+(2, 'Sit Ups', 'Core', 'N', 1, '2020-08-02', 4, 14),
+(3, 'Squats', 'Legs', 'N', 2, '2020-08-02', 3, 7),
+(4, 'Bench Press', 'Chest', `N`, 2, '2020-08-02', 3, 8);
 
 -- --------------------------------------------------------
 
@@ -84,32 +89,6 @@ INSERT INTO `Workouts` (`workoutID`, `workoutName`, `bodyPart`, `linkToVideo`, `
 (17, 'Lat Pull-down', 'Chest', 'https://www.youtube.com/watch?v=CAwf7n6Luuc', 5)
 (18, 'Kettlebell Swings', 'Chest', 'https://www.youtube.com/watch?v=YSxHifyI6s8', 3);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `DailyWorkouts`
---
-
-CREATE TABLE `DailyWorkouts` (
-  `listID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2,
-  `userID` int(11) NOT NULL,
-  `workoutName` varchar(20) NOT NULL,
-  `bodyPart` varchar(20) NOT NULL,
-  `linkToVideo` varchar(20) NOT NULL,
-  `date` date NOT NULL,
-  `sets` int(2) NOT NULL,
-  `reps` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `DailyWorkouts`
---
-
-INSERT INTO `DailyWorkouts` (`listID`, `userID`, `workoutName`, `bodyPart`, `linkToVideo`, `date`, `sets`, `reps`) VALUES
-(1, 1, 'Bench Press', 'Chest', '#', '2020-08-02', 4, 10),
-(2, 1, 'Sit Ups', 'Core', '#', '2020-08-02', 4, 14),
-(3, 2, 'Squats', 'Legs', '#', '2020-08-02', 3, 7),
-(4, 2, 'Bench Press', 'Chest', '#', '2020-08-02', 3, 8);
 
 -- --------------------------------------------------------
 
@@ -207,8 +186,8 @@ INSERT INTO `Posts` (`postID`, `userID`, `postText`) VALUES
 --
 -- Indexes for table `CompletedWorkouts`
 --
-ALTER TABLE `CompletedWorkouts`
-  ADD PRIMARY KEY (`workoutID`),
+ALTER TABLE `UserWorkouts`
+  ADD PRIMARY KEY (`userWorkoutID`),
   ADD KEY `userID` (`userID`);
 
 --
@@ -216,14 +195,6 @@ ALTER TABLE `CompletedWorkouts`
 --
 ALTER TABLE `Workouts`
   ADD PRIMARY KEY (`workoutID`);
-
---
--- Indexes for table `DailyWorkouts`
---
-ALTER TABLE `DailyWorkouts`
-  ADD PRIMARY KEY (`listID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `workoutID` (`workoutID`);
 
 --
 -- Indexes for table `Users`
@@ -260,16 +231,10 @@ ALTER TABLE `Comments`
 --
 
 --
--- Constraints for table `CompletedWorkouts`
+-- Constraints for table `UserWorkouts`
 --
-ALTER TABLE `CompletedWorkouts`
-  ADD CONSTRAINT `CompletedWorkouts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
-
---
--- Constraints for table `DailyWorkouts`
---
-ALTER TABLE `DailyWorkouts`
-  ADD CONSTRAINT `DailyWorkouts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
+ALTER TABLE `UserWorkouts`
+  ADD CONSTRAINT `UserWorkouts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`);
 
 --
 -- Constraints for table `Posts`
