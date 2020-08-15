@@ -1,0 +1,54 @@
+<header>
+	<nav class="navBar">
+			<a href="/">Home</a>
+			<a href="/account">Account</a>
+			<a href="/my-workouts">My Workouts</a>
+			<a href="/posts">User Forum</a>
+			<a href="#">Logout</a>
+</header>
+
+<section>
+    <br>
+	<div class = "header">
+        <h3>Post Comments</h3>
+	</div>
+  	
+	<table>
+		
+		<thead>
+		<table id = "t2">
+			<tr>
+				<th>User Name</th>
+				<th>Comment</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{{#each comments}}
+			<tr>
+				<td>{{userName}}</td>
+				<td>{{commentText}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+    <br>
+<div class = "table">
+<form id="addcomment" action="/post-comments" method="post">
+<div class = "header">
+	<h3>Add Comment</h3>
+	</div>
+			<table>
+			<tr>
+				<td>Comment Text: </td>
+				<td><input type="text" id="commentText" name="commentText"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" id="Submit" value = "Submit"></td>
+			</tr>
+			</table>
+		</form>
+	</div>
+    	<br>
+</section>
