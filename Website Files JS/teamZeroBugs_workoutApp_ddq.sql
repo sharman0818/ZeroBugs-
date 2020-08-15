@@ -190,10 +190,10 @@ CREATE TABLE `Comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Posts`
+-- Dumping data for table `Comments`
 --
 
-INSERT INTO `Posts` (`postID`, `userID`, `postText`) VALUES
+INSERT INTO `Comments` (`postID`, `userID`, `postText`) VALUES
 (5, 2, 'I am the second test user and I am commenting on this'),
 (5, 1, 'Thank you for your input.'),
 (20, 1, 'You like to work out.'),
