@@ -13,8 +13,13 @@ app.set('port', process.argv[2]);
 app.use('/static', express.static('public'));
 app.use('/', express.static('public'));
 
-app.use('/', require('./main.js'));
-app.use('/update-password', require('./main.js'));
+app.use('/account', require('./account.js'));
+app.use('/update-account', require('./account.js'));
+app.use('/my-workouts', require('./my-workouts.js'));
+app.use('/posts', require('./posts.js'));
+app.use('/post-comments', require('./comments.js'));
+app.use('/sign-in', require('./sign-in.js'));
+app.use('/sign-up', require('./sign-ip.js'));
 
 app.get('/', function(req, res){
 	res.render("home");
