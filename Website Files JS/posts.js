@@ -66,9 +66,6 @@ module.exports = function(){
         console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO Posts (postText, postUserID) VALUES (?,?)";
-        if (req.body.major_id == "NULL"){
-            var major_id = null;
-        }else {major_id = req.body.major_id}
         var inserts = [req.body.postText, req.body.postUserID];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
@@ -97,3 +94,7 @@ module.exports = function(){
 
         }
     });
+
+    return router;
+
+}();
